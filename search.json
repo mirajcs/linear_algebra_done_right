@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "exercises_3e.html",
+    "href": "exercises_3e.html",
+    "title": "Exercises: Products and Quotients of Vector Spaces",
+    "section": "",
+    "text": "Axler, Linear Algebra Done Right, 4th ed., §3E",
+    "crumbs": [
+      "Chapter 3: Linear Maps",
+      "3E Exercises"
+    ]
+  },
+  {
+    "objectID": "exercises_3e.html#exercise-3",
+    "href": "exercises_3e.html#exercise-3",
+    "title": "Exercises: Products and Quotients of Vector Spaces",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nSuppose \\(V_1, \\ldots, V_m\\) are vector spaces. Prove that \\(\\mathcal{L}(V_1 \\times \\cdots \\times V_m, W)\\) and \\(\\mathcal{L}(V_1, W) \\times \\cdots \\times \\mathcal{L}(V_m, W)\\) are isomorphic vector spaces.\n\nIdea. A linear map out of a product is determined by what it does on each factor separately. So we restrict \\(T\\) to each slot, and in the other direction we add the pieces back together.\nSetup. For \\(k = 1, \\ldots, m\\) define the inclusion \\(R_k \\colon V_k \\to V_1 \\times \\cdots \\times V_m\\) by \\[R_k(v) = (0, \\ldots, 0, \\underbrace{v}_{k\\text{th slot}}, 0, \\ldots, 0).\\] Each \\(R_k\\) is linear, since addition and scalar multiplication in the product are done one slot at a time. Note also that every element of the product splits as \\[(v_1, \\ldots, v_m) = R_1 v_1 + \\cdots + R_m v_m. \\tag{$*$}\\]\nProof. Define \\[\\Phi \\colon \\mathcal{L}(V_1 \\times \\cdots \\times V_m, W) \\to \\mathcal{L}(V_1, W) \\times \\cdots \\times \\mathcal{L}(V_m, W), \\qquad \\Phi(T) = (T R_1, \\ldots, T R_m).\\] Each \\(T R_k\\) is a composition of linear maps, so \\(T R_k \\in \\mathcal{L}(V_k, W)\\) and \\(\\Phi\\) is well defined. We show that \\(\\Phi\\) is an isomorphism.\n\\(\\Phi\\) is linear. For \\(S, T \\in \\mathcal{L}(V_1 \\times \\cdots \\times V_m, W)\\) and \\(\\lambda \\in \\mathbf{F}\\), composition distributes over addition and scalar multiplication (3.8), so \\[\\Phi(S + T) = \\big((S+T)R_1, \\ldots, (S+T)R_m\\big) = (SR_1 + TR_1, \\ldots, SR_m + TR_m) = \\Phi(S) + \\Phi(T),\\] \\[\\Phi(\\lambda T) = \\big((\\lambda T)R_1, \\ldots, (\\lambda T)R_m\\big) = \\lambda\\,(TR_1, \\ldots, TR_m) = \\lambda\\,\\Phi(T).\\]\n\\(\\Phi\\) is injective. Suppose \\(\\Phi(T) = 0\\), so \\(T R_k = 0\\) for every \\(k\\). Then for any \\((v_1, \\ldots, v_m)\\), by \\((*)\\), \\[T(v_1, \\ldots, v_m) = T(R_1 v_1) + \\cdots + T(R_m v_m) = 0 + \\cdots + 0 = 0.\\] So \\(T = 0\\), which means \\(\\operatorname{null}\\Phi = \\{0\\}\\) and \\(\\Phi\\) is injective (3.15).\n\\(\\Phi\\) is surjective. Let \\((S_1, \\ldots, S_m) \\in \\mathcal{L}(V_1, W) \\times \\cdots \\times \\mathcal{L}(V_m, W)\\). Define \\(T \\colon V_1 \\times \\cdots \\times V_m \\to W\\) by \\[T(v_1, \\ldots, v_m) = S_1 v_1 + \\cdots + S_m v_m.\\] \\(T\\) is linear, because \\[\\begin{aligned}\nT\\big((v_1, \\ldots, v_m) + \\lambda(u_1, \\ldots, u_m)\\big)\n&= T(v_1 + \\lambda u_1, \\ldots, v_m + \\lambda u_m) \\\\\n&= \\textstyle\\sum_{k} S_k(v_k + \\lambda u_k) \\\\\n&= \\textstyle\\sum_{k} S_k v_k + \\lambda \\sum_{k} S_k u_k \\\\\n&= T(v_1, \\ldots, v_m) + \\lambda\\, T(u_1, \\ldots, u_m).\n\\end{aligned}\\] Also, for \\(v \\in V_k\\), every slot of \\(R_k v\\) is \\(0\\) except slot \\(k\\), so \\(T R_k v = S_k v\\). Hence \\(T R_k = S_k\\) for each \\(k\\), and \\(\\Phi(T) = (S_1, \\ldots, S_m)\\).\nSince \\(\\Phi\\) is linear, injective, and surjective, it is an isomorphism. So \\(\\mathcal{L}(V_1 \\times \\cdots \\times V_m, W) \\cong \\mathcal{L}(V_1, W) \\times \\cdots \\times \\mathcal{L}(V_m, W)\\). \\(\\blacksquare\\)\nRemarks.\n\nThe proof never uses finite dimension, so the result holds for all vector spaces. That is why we construct an explicit isomorphism instead of comparing dimensions.",
+    "crumbs": [
+      "Chapter 3: Linear Maps",
+      "3E Exercises"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Linear Algebra Done Right",
+    "section": "",
+    "text": "Lecture notes and worked examples based on Axler’s Linear Algebra Done Right, 4th edition.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#chapter-3-linear-maps",
+    "href": "index.html#chapter-3-linear-maps",
+    "title": "Linear Algebra Done Right",
+    "section": "Chapter 3: Linear Maps",
+    "text": "Chapter 3: Linear Maps\n\n3E Exercises: Products and Quotients of Vector Spaces",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
