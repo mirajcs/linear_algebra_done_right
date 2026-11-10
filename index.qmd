@@ -1,0 +1,9 @@
+---
+title: "Linear Algebra Done Right"
+---
+
+Lecture notes and worked examples based on [Axler's *Linear Algebra Done Right*, 4th edition](https://linear.axler.net/LADR4e.pdf).
+
+## Chapter 3: Linear Maps
+
+- [3E Exercises: Products and Quotients of Vector Spaces](exercises_3e.ipynb)

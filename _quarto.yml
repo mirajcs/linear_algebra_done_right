@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - rn_and_cn.ipynb
+    - exercises_3e.ipynb
+
+website:
+  title: "Linear Algebra Done Right"
+  navbar:
+    left:
+      - text: "Ch 3: Linear Maps"
+        menu:
+          - href: exercises_3e.ipynb
+            text: "3E Exercises"
+  sidebar:
+    style: docked
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Chapter 3: Linear Maps"
+        contents:
+          - href: exercises_3e.ipynb
+            text: "3E Exercises"
+
+format:
+  html:
+    toc: true
+    code-fold: show
+
+execute:
+  freeze: auto   # reuse saved results instead of re-running code on every render
