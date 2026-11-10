@@ -1,7 +1,6 @@
 [project]
 name = "linear-algebra-done-right"
 version = "0.1.0"
-description = "Add your description here"
 readme = "README.md"
 authors = [
     { name = "Miraj Samarakkody", email = "miraj.samarakkody@gmail.com" }

@@ -3,11 +3,12 @@ project:
   output-dir: _site
   render:
     - index.qmd
-    - rn_and_cn.ipynb
     - exercises_3e.ipynb
 
 website:
   title: "Linear Algebra Done Right"
+  page-footer:
+    center: "Notes © Miraj Samarakkody · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) · Exercises from Axler, *Linear Algebra Done Right*, 4th ed."
   navbar:
     left:
       - text: "Ch 3: Linear Maps"
