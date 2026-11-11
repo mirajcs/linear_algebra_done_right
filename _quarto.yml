@@ -31,4 +31,4 @@ format:
     code-fold: show
 
 execute:
-  freeze: auto   # reuse saved results instead of re-running code on every render
+  freeze: auto   
