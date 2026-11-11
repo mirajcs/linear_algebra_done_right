@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miraj Samarakkody">
-<meta name="dcterms.date" content="2026-11-10">
+<meta name="dcterms.date" content="2026-11-11">
 
 <title>Exercises: Products and Quotients of Vector Spaces – Linear Algebra Done Right</title>
 <style>
@@ -193,6 +193,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link active" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exercises_3e.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -218,7 +219,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 10, 2026</p>
+      <p class="date">November 11, 2026</p>
     </div>
   </div>
   
@@ -252,6 +253,30 @@ T\big((v_1, \ldots, v_m) + \lambda(u_1, \ldots, u_m)\big)
 <p><strong>Remarks.</strong></p>
 <ol type="1">
 <li>The proof never uses finite dimension, so the result holds for all vector spaces. That is why we construct an explicit isomorphism instead of comparing dimensions.</li>
+</ol>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<blockquote class="blockquote">
+<p>Suppose <span class="math inline">\(W_1, \ldots, W_m\)</span> are vector spaces. Prove that <span class="math inline">\(\mathcal{L}(V, W_1 \times \cdots \times W_m)\)</span> and <span class="math inline">\(\mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m)\)</span> are isomorphic vector spaces.</p>
+</blockquote>
+<p><strong>Idea.</strong> This is the mirror image of Exercise 3. A linear map <em>into</em> a product is determined by its coordinate maps. So we read off each coordinate of <span class="math inline">\(T\)</span>, and in the other direction we stack the pieces side by side.</p>
+<p><strong>Setup.</strong> For <span class="math inline">\(k = 1, \ldots, m\)</span> define the <em>projection</em> <span class="math inline">\(P_k \colon W_1 \times \cdots \times W_m \to W_k\)</span> by <span class="math display">\[P_k(w_1, \ldots, w_m) = w_k.\]</span> Each <span class="math inline">\(P_k\)</span> is linear, since addition and scalar multiplication in the product are done one slot at a time. Note also that every element of the product is determined by its coordinates: <span class="math display">\[w = (P_1 w, \ldots, P_m w) \quad \text{for all } w \in W_1 \times \cdots \times W_m. \tag{$**$}\]</span></p>
+<p><strong>Proof.</strong> Define <span class="math display">\[\Phi \colon \mathcal{L}(V, W_1 \times \cdots \times W_m) \to \mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m), \qquad \Phi(T) = (P_1 T, \ldots, P_m T).\]</span> Each <span class="math inline">\(P_k T\)</span> is a composition of linear maps <span class="math inline">\(V \xrightarrow{T} W_1 \times \cdots \times W_m \xrightarrow{P_k} W_k\)</span>, so <span class="math inline">\(P_k T \in \mathcal{L}(V, W_k)\)</span> and <span class="math inline">\(\Phi\)</span> is well defined. We show that <span class="math inline">\(\Phi\)</span> is an isomorphism.</p>
+<p><em><span class="math inline">\(\Phi\)</span> is linear.</em> For <span class="math inline">\(S, T \in \mathcal{L}(V, W_1 \times \cdots \times W_m)\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>, composition distributes over addition and scalar multiplication (3.8), so <span class="math display">\[\Phi(S + T) = \big(P_1(S+T), \ldots, P_m(S+T)\big) = (P_1S + P_1T, \ldots, P_mS + P_mT) = \Phi(S) + \Phi(T),\]</span> <span class="math display">\[\Phi(\lambda T) = \big(P_1(\lambda T), \ldots, P_m(\lambda T)\big) = \lambda\,(P_1T, \ldots, P_mT) = \lambda\,\Phi(T).\]</span></p>
+<p><em><span class="math inline">\(\Phi\)</span> is injective.</em> Suppose <span class="math inline">\(\Phi(T) = 0\)</span>, so <span class="math inline">\(P_k T = 0\)</span> for every <span class="math inline">\(k\)</span>. Then for any <span class="math inline">\(v \in V\)</span>, by <span class="math inline">\((**)\)</span>, <span class="math display">\[Tv = (P_1 Tv, \ldots, P_m Tv) = (0, \ldots, 0) = 0.\]</span> So <span class="math inline">\(T = 0\)</span>, which means <span class="math inline">\(\operatorname{null}\Phi = \{0\}\)</span> and <span class="math inline">\(\Phi\)</span> is injective (3.15).</p>
+<p><em><span class="math inline">\(\Phi\)</span> is surjective.</em> Let <span class="math inline">\((S_1, \ldots, S_m) \in \mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m)\)</span>. Define <span class="math inline">\(T \colon V \to W_1 \times \cdots \times W_m\)</span> by <span class="math display">\[Tv = (S_1 v, \ldots, S_m v).\]</span> <span class="math inline">\(T\)</span> is linear, because for <span class="math inline">\(u, v \in V\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>, <span class="math display">\[\begin{aligned}
+T(v + \lambda u)
+&amp;= \big(S_1(v + \lambda u), \ldots, S_m(v + \lambda u)\big) \\
+&amp;= (S_1 v + \lambda S_1 u, \ldots, S_m v + \lambda S_m u) \\
+&amp;= (S_1 v, \ldots, S_m v) + \lambda\,(S_1 u, \ldots, S_m u) \\
+&amp;= Tv + \lambda\, Tu.
+\end{aligned}\]</span> Also <span class="math inline">\(P_k T v = S_k v\)</span> for every <span class="math inline">\(v \in V\)</span>, so <span class="math inline">\(P_k T = S_k\)</span> for each <span class="math inline">\(k\)</span>, and <span class="math inline">\(\Phi(T) = (S_1, \ldots, S_m)\)</span>.</p>
+<p>Since <span class="math inline">\(\Phi\)</span> is linear, injective, and surjective, it is an isomorphism. So <span class="math inline">\(\mathcal{L}(V, W_1 \times \cdots \times W_m) \cong \mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m)\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>As in Exercise 3, nothing here uses finite dimension, so the result holds for all vector spaces.</li>
+<li>Compare the two exercises: maps <em>out of</em> a product are handled with the inclusions <span class="math inline">\(R_k\)</span> (precompose, <span class="math inline">\(T \mapsto TR_k\)</span>), while maps <em>into</em> a product are handled with the projections <span class="math inline">\(P_k\)</span> (postcompose, <span class="math inline">\(T \mapsto P_kT\)</span>).</li>
 </ol>
 
 
