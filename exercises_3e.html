@@ -196,6 +196,7 @@ window.Quarto = {
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exercises_3e.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -323,6 +324,22 @@ T(v + \lambda u)
 <ol type="1">
 <li>By symmetry, Step 1 also gives <span class="math inline">\(x - v \in U\)</span>. So the hypothesis forces <span class="math inline">\(v - x \in U \cap W\)</span>, and since <span class="math inline">\(U = W\)</span>, we get <span class="math inline">\(v + U = x + U\)</span> as well.</li>
 <li>A translate determines its subspace intrinsically: <span class="math inline">\(U = \{\, a - b : a, b \in v + U \,\}\)</span>. Applying this to both sides of (1) gives another one-line proof.</li>
+</ol>
+</section>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<blockquote class="blockquote">
+<p>Let <span class="math inline">\(U = \{(x, y, z) \in \mathbf{R}^3 : 2x + 3y + 5z = 0\}\)</span>. Suppose <span class="math inline">\(A \subseteq \mathbf{R}^3\)</span>. Prove that <span class="math inline">\(A\)</span> is a translate of <span class="math inline">\(U\)</span> if and only if there exists <span class="math inline">\(c \in \mathbf{R}\)</span> such that <span class="math display">\[A = \{(x, y, z) \in \mathbf{R}^3 : 2x + 3y + 5z = c\}.\]</span></p>
+</blockquote>
+<p><strong>Idea.</strong> <span class="math inline">\(U\)</span> is the null space of the linear functional <span class="math inline">\(\varphi(x, y, z) = 2x + 3y + 5z\)</span>. Translating <span class="math inline">\(U\)</span> by <span class="math inline">\(a\)</span> gives exactly the points where <span class="math inline">\(\varphi\)</span> takes the value <span class="math inline">\(\varphi(a)\)</span>. So the translates of <span class="math inline">\(U\)</span> are the level sets of <span class="math inline">\(\varphi\)</span>, which are the parallel planes <span class="math inline">\(2x + 3y + 5z = c\)</span>.</p>
+<p><strong>Setup.</strong> Define <span class="math inline">\(\varphi \colon \mathbf{R}^3 \to \mathbf{R}\)</span> by <span class="math display">\[\varphi(x, y, z) = 2x + 3y + 5z.\]</span> Then <span class="math inline">\(\varphi\)</span> is linear and <span class="math inline">\(U = \operatorname{null} \varphi\)</span>. For <span class="math inline">\(c \in \mathbf{R}\)</span>, write <span class="math display">\[P_c = \{p \in \mathbf{R}^3 : \varphi(p) = c\} = \{(x, y, z) \in \mathbf{R}^3 : 2x + 3y + 5z = c\}.\]</span></p>
+<p><strong>Key fact.</strong> For every <span class="math inline">\(a \in \mathbf{R}^3\)</span>, <span class="math display">\[a + U = P_{\varphi(a)}. \tag{$\star$}\]</span> To see this, let <span class="math inline">\(p \in \mathbf{R}^3\)</span>. Using the linearity of <span class="math inline">\(\varphi\)</span>, <span class="math display">\[p \in a + U \iff p - a \in U \iff \varphi(p - a) = 0 \iff \varphi(p) - \varphi(a) = 0 \iff p \in P_{\varphi(a)}.\]</span></p>
+<p><strong>Proof.</strong></p>
+<p><em>(<span class="math inline">\(\Rightarrow\)</span>)</em> Suppose <span class="math inline">\(A\)</span> is a translate of <span class="math inline">\(U\)</span>, say <span class="math inline">\(A = a + U\)</span> for some <span class="math inline">\(a = (a_1, a_2, a_3) \in \mathbf{R}^3\)</span>. Let <span class="math display">\[c = \varphi(a) = 2a_1 + 3a_2 + 5a_3.\]</span> By <span class="math inline">\((\star)\)</span>, <span class="math inline">\(A = a + U = P_c\)</span>, which is the required form.</p>
+<p><em>(<span class="math inline">\(\Leftarrow\)</span>)</em> Suppose <span class="math inline">\(A = P_c\)</span> for some <span class="math inline">\(c \in \mathbf{R}\)</span>. We need a point <span class="math inline">\(v\)</span> with <span class="math inline">\(\varphi(v) = c\)</span>. Take <span class="math display">\[v = \left(\tfrac{c}{10}, \tfrac{c}{10}, \tfrac{c}{10}\right), \qquad \varphi(v) = \tfrac{2c}{10} + \tfrac{3c}{10} + \tfrac{5c}{10} = c.\]</span> By <span class="math inline">\((\star)\)</span>, <span class="math inline">\(v + U = P_{\varphi(v)} = P_c = A\)</span>. So <span class="math inline">\(A\)</span> is a translate of <span class="math inline">\(U\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>Geometrically, <span class="math inline">\(\mathbf{R}^3 / U\)</span> is the set of planes parallel to <span class="math inline">\(U\)</span>, one for each <span class="math inline">\(c \in \mathbf{R}\)</span>. The map <span class="math inline">\(P_c \mapsto c\)</span> is the isomorphism <span class="math inline">\(\mathbf{R}^3/U \to \mathbf{R}\)</span> that <span class="math inline">\(\varphi\)</span> induces (3.106). This matches <span class="math inline">\(\dim \mathbf{R}^3/U = 3 - 2 = 1\)</span>.</li>
 </ol>
 
 
