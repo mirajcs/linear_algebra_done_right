@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miraj Samarakkody">
-<meta name="dcterms.date" content="2026-11-11">
+<meta name="dcterms.date" content="2026-11-12">
 
 <title>Exercises: Products and Quotients of Vector Spaces – Linear Algebra Done Right</title>
 <style>
@@ -194,6 +194,8 @@ window.Quarto = {
   <ul>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link active" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exercises_3e.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -219,7 +221,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 11, 2026</p>
+      <p class="date">November 12, 2026</p>
     </div>
   </div>
   
@@ -277,6 +279,50 @@ T(v + \lambda u)
 <ol type="1">
 <li>As in Exercise 3, nothing here uses finite dimension, so the result holds for all vector spaces.</li>
 <li>Compare the two exercises: maps <em>out of</em> a product are handled with the inclusions <span class="math inline">\(R_k\)</span> (precompose, <span class="math inline">\(T \mapsto TR_k\)</span>), while maps <em>into</em> a product are handled with the projections <span class="math inline">\(P_k\)</span> (postcompose, <span class="math inline">\(T \mapsto P_kT\)</span>).</li>
+</ol>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<blockquote class="blockquote">
+<p>For <span class="math inline">\(m\)</span> a positive integer, define <span class="math inline">\(V^m\)</span> by <span class="math inline">\(V^m = \underbrace{V \times \cdots \times V}_{m \text{ times}}\)</span>. Prove that <span class="math inline">\(V^m\)</span> and <span class="math inline">\(\mathcal{L}(\mathbf{F}^m, V)\)</span> are isomorphic vector spaces.</p>
+</blockquote>
+<p><strong>Idea.</strong> A linear map out of <span class="math inline">\(\mathbf{F}^m\)</span> is determined by where it sends the standard basis <span class="math inline">\(e_1, \ldots, e_m\)</span> (3.4). So a list <span class="math inline">\((v_1, \ldots, v_m)\)</span> of <span class="math inline">\(m\)</span> vectors in <span class="math inline">\(V\)</span> carries exactly the same information as a linear map <span class="math inline">\(\mathbf{F}^m \to V\)</span>: send <span class="math inline">\(e_k\)</span> to <span class="math inline">\(v_k\)</span>.</p>
+<p><strong>Setup.</strong> Let <span class="math inline">\(e_1, \ldots, e_m\)</span> be the standard basis of <span class="math inline">\(\mathbf{F}^m\)</span>, so every <span class="math inline">\(a \in \mathbf{F}^m\)</span> can be written as <span class="math display">\[a = (a_1, \ldots, a_m) = a_1 e_1 + \cdots + a_m e_m. \tag{$\dagger$}\]</span></p>
+<p><strong>Proof.</strong> Define <span class="math display">\[\Phi \colon V^m \to \mathcal{L}(\mathbf{F}^m, V), \qquad \Phi(v_1, \ldots, v_m)(a_1, \ldots, a_m) = a_1 v_1 + \cdots + a_m v_m.\]</span> For fixed <span class="math inline">\((v_1, \ldots, v_m)\)</span>, the map <span class="math inline">\(\Phi(v_1, \ldots, v_m)\)</span> is linear, because for <span class="math inline">\(a, b \in \mathbf{F}^m\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>, <span class="math display">\[\Phi(v_1, \ldots, v_m)(a + \lambda b) = \textstyle\sum_k (a_k + \lambda b_k) v_k = \sum_k a_k v_k + \lambda \sum_k b_k v_k = \Phi(v_1, \ldots, v_m)(a) + \lambda\,\Phi(v_1, \ldots, v_m)(b).\]</span> So <span class="math inline">\(\Phi(v_1, \ldots, v_m) \in \mathcal{L}(\mathbf{F}^m, V)\)</span> and <span class="math inline">\(\Phi\)</span> is well defined. Note also that <span class="math display">\[\Phi(v_1, \ldots, v_m)(e_k) = v_k \quad \text{for each } k. \tag{$\ddagger$}\]</span> We show that <span class="math inline">\(\Phi\)</span> is an isomorphism.</p>
+<p><em><span class="math inline">\(\Phi\)</span> is linear.</em> Let <span class="math inline">\((v_1, \ldots, v_m), (u_1, \ldots, u_m) \in V^m\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>. For every <span class="math inline">\(a \in \mathbf{F}^m\)</span>, <span class="math display">\[\begin{aligned}
+\Phi\big((v_1, \ldots, v_m) + (u_1, \ldots, u_m)\big)(a)
+&amp;= \Phi(v_1 + u_1, \ldots, v_m + u_m)(a) \\
+&amp;= \textstyle\sum_k a_k (v_k + u_k) \\
+&amp;= \textstyle\sum_k a_k v_k + \sum_k a_k u_k \\
+&amp;= \Phi(v_1, \ldots, v_m)(a) + \Phi(u_1, \ldots, u_m)(a),
+\end{aligned}\]</span> <span class="math display">\[\Phi\big(\lambda (v_1, \ldots, v_m)\big)(a) = \Phi(\lambda v_1, \ldots, \lambda v_m)(a) = \textstyle\sum_k a_k (\lambda v_k) = \lambda \sum_k a_k v_k = \lambda\,\Phi(v_1, \ldots, v_m)(a).\]</span> Since these hold for every <span class="math inline">\(a\)</span>, we get <span class="math inline">\(\Phi\big((v_1, \ldots, v_m) + (u_1, \ldots, u_m)\big) = \Phi(v_1, \ldots, v_m) + \Phi(u_1, \ldots, u_m)\)</span> and <span class="math inline">\(\Phi\big(\lambda(v_1, \ldots, v_m)\big) = \lambda\,\Phi(v_1, \ldots, v_m)\)</span>.</p>
+<p><em><span class="math inline">\(\Phi\)</span> is injective.</em> Suppose <span class="math inline">\(\Phi(v_1, \ldots, v_m) = 0\)</span>, the zero map. Then by <span class="math inline">\((\ddagger)\)</span>, <span class="math display">\[v_k = \Phi(v_1, \ldots, v_m)(e_k) = 0 \quad \text{for each } k.\]</span> So <span class="math inline">\((v_1, \ldots, v_m) = (0, \ldots, 0)\)</span>, which means <span class="math inline">\(\operatorname{null}\Phi = \{0\}\)</span> and <span class="math inline">\(\Phi\)</span> is injective (3.15).</p>
+<p><em><span class="math inline">\(\Phi\)</span> is surjective.</em> Let <span class="math inline">\(T \in \mathcal{L}(\mathbf{F}^m, V)\)</span>. Set <span class="math inline">\(v_k = T e_k\)</span> for <span class="math inline">\(k = 1, \ldots, m\)</span>. Then for every <span class="math inline">\(a \in \mathbf{F}^m\)</span>, using <span class="math inline">\((\dagger)\)</span> and the linearity of <span class="math inline">\(T\)</span>, <span class="math display">\[\Phi(v_1, \ldots, v_m)(a) = \textstyle\sum_k a_k\, T e_k = T\big(\sum_k a_k e_k\big) = T a.\]</span> So <span class="math inline">\(\Phi(Te_1, \ldots, Te_m) = T\)</span>.</p>
+<p>Since <span class="math inline">\(\Phi\)</span> is linear, injective, and surjective, it is an isomorphism. So <span class="math inline">\(V^m \cong \mathcal{L}(\mathbf{F}^m, V)\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>The inverse is explicit: <span class="math inline">\(\Phi^{-1}(T) = (Te_1, \ldots, Te_m)\)</span>. It just evaluates <span class="math inline">\(T\)</span> on the standard basis.</li>
+<li>Nothing here uses finite dimension of <span class="math inline">\(V\)</span>, so the result holds for every vector space <span class="math inline">\(V\)</span>.</li>
+<li>This is also a special case of Exercise 3. Take <span class="math inline">\(V_1 = \cdots = V_m = \mathbf{F}\)</span> and <span class="math inline">\(W = V\)</span>. Then <span class="math inline">\(\mathcal{L}(\mathbf{F}^m, V) \cong \mathcal{L}(\mathbf{F}, V)^m\)</span>. Also <span class="math inline">\(\mathcal{L}(\mathbf{F}, V) \cong V\)</span> via <span class="math inline">\(S \mapsto S(1)\)</span>, so <span class="math inline">\(\mathcal{L}(\mathbf{F}, V)^m \cong V^m\)</span>.</li>
+</ol>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<blockquote class="blockquote">
+<p>Suppose <span class="math inline">\(v, x\)</span> are vectors in <span class="math inline">\(V\)</span> and <span class="math inline">\(U, W\)</span> are subspaces of <span class="math inline">\(V\)</span> such that <span class="math inline">\(v + U = x + W\)</span>. Prove that <span class="math inline">\(U = W\)</span>.</p>
+</blockquote>
+<p><strong>Idea.</strong> A translate <span class="math inline">\(v + U\)</span> remembers the subspace <span class="math inline">\(U\)</span> it came from: it is the set of all differences of its elements. So two equal translates must come from the same subspace. The plan is to first move both translates to the same base point <span class="math inline">\(v\)</span>, and then cancel <span class="math inline">\(v\)</span>.</p>
+<p><strong>Setup.</strong> Recall 3.101: for a subspace <span class="math inline">\(W\)</span> and <span class="math inline">\(v, x \in V\)</span>, <span class="math display">\[v - x \in W \iff v + W = x + W. \tag{$\S$}\]</span></p>
+<p><strong>Proof.</strong> Suppose <span class="math display">\[v + U = x + W. \tag{1}\]</span></p>
+<p><em>Step 1: <span class="math inline">\(v - x \in W\)</span>.</em> Since <span class="math inline">\(0 \in U\)</span>, we have <span class="math inline">\(v = v + 0 \in v + U\)</span>. By (1), <span class="math inline">\(v \in x + W\)</span>, so <span class="math inline">\(v = x + w_0\)</span> for some <span class="math inline">\(w_0 \in W\)</span>. Hence <span class="math inline">\(v - x = w_0 \in W\)</span>.</p>
+<p><em>Step 2: Move to the same base point.</em> By Step 1 and <span class="math inline">\((\S)\)</span>, <span class="math inline">\(x + W = v + W\)</span>. Combining with (1), <span class="math display">\[v + U = v + W. \tag{2}\]</span></p>
+<p><em>Step 3: Cancel <span class="math inline">\(v\)</span>.</em> Let <span class="math inline">\(u \in U\)</span>. Then <span class="math inline">\(v + u \in v + U\)</span>, so by (2), <span class="math inline">\(v + u = v + w\)</span> for some <span class="math inline">\(w \in W\)</span>. Subtracting <span class="math inline">\(v\)</span> gives <span class="math inline">\(u = w \in W\)</span>. So <span class="math inline">\(U \subseteq W\)</span>.</p>
+<p>In the same way, let <span class="math inline">\(w \in W\)</span>. Then <span class="math inline">\(v + w \in v + W\)</span>, so by (2), <span class="math inline">\(v + w = v + u\)</span> for some <span class="math inline">\(u \in U\)</span>. So <span class="math inline">\(w = u \in U\)</span>, which gives <span class="math inline">\(W \subseteq U\)</span>.</p>
+<p>Therefore <span class="math inline">\(U = W\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>By symmetry, Step 1 also gives <span class="math inline">\(x - v \in U\)</span>. So the hypothesis forces <span class="math inline">\(v - x \in U \cap W\)</span>, and since <span class="math inline">\(U = W\)</span>, we get <span class="math inline">\(v + U = x + U\)</span> as well.</li>
+<li>A translate determines its subspace intrinsically: <span class="math inline">\(U = \{\, a - b : a, b \in v + U \,\}\)</span>. Applying this to both sides of (1) gives another one-line proof.</li>
 </ol>
 
 
