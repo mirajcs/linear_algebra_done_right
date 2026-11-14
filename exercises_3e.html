@@ -202,6 +202,7 @@ window.Quarto = {
   <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
   <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
   </ul></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exercises_3e.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -371,9 +372,31 @@ T(v + \lambda u)
 <li>When <span class="math inline">\(c \neq 0\)</span>, the solution set is disjoint from <span class="math inline">\(\operatorname{null} T\)</span>: if <span class="math inline">\(Tx = c\)</span> and <span class="math inline">\(Tx = 0\)</span> then <span class="math inline">\(c = 0\)</span>. So the solution set is a translate of <span class="math inline">\(\operatorname{null} T\)</span> but is never contained in it unless <span class="math inline">\(c = 0\)</span>, in which case it equals <span class="math inline">\(\operatorname{null} T\)</span>.</li>
 <li>The solution set is a subspace only when <span class="math inline">\(c = 0\)</span>, since a subspace must contain <span class="math inline">\(0\)</span> and <span class="math inline">\(T0 = 0\)</span>. For <span class="math inline">\(c \neq 0\)</span> it is an affine “shifted copy” of <span class="math inline">\(\operatorname{null} T\)</span>, which is the familiar statement <em>general solution = particular solution + homogeneous solution</em>.</li>
 </ol>
-
-
 </section>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<blockquote class="blockquote">
+<p>Prove that a nonempty subset <span class="math inline">\(A\)</span> of <span class="math inline">\(V\)</span> is a translate of some subspace of <span class="math inline">\(V\)</span> if and only if <span class="math inline">\(\lambda v + (1 - \lambda) w \in A\)</span> for all <span class="math inline">\(v, w \in A\)</span> and all <span class="math inline">\(\lambda \in \mathbf{F}\)</span>.</p>
+</blockquote>
+<p><strong>Idea.</strong> The condition says <span class="math inline">\(A\)</span> contains every line through two of its points. For (<span class="math inline">\(\Rightarrow\)</span>), the coefficients <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(1 - \lambda\)</span> add to <span class="math inline">\(1\)</span>, so the translation vector appears exactly once and the rest stays in the subspace. For (<span class="math inline">\(\Leftarrow\)</span>), fix a point <span class="math inline">\(a \in A\)</span> and shift <span class="math inline">\(A\)</span> back to the origin: <span class="math inline">\(U = A - a\)</span>. Then check that <span class="math inline">\(U\)</span> is a subspace. Scalar multiples come from the line through <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>. Sums come from the midpoint (taking <span class="math inline">\(\lambda = \tfrac12\)</span>) followed by scaling by <span class="math inline">\(2\)</span>.</p>
+<p><strong>Proof.</strong></p>
+<p><em>(<span class="math inline">\(\Rightarrow\)</span>)</em> Suppose <span class="math inline">\(A = a + U\)</span> for some <span class="math inline">\(a \in V\)</span> and some subspace <span class="math inline">\(U\)</span> of <span class="math inline">\(V\)</span>. Let <span class="math inline">\(v, w \in A\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>. Write <span class="math inline">\(v = a + u_1\)</span> and <span class="math inline">\(w = a + u_2\)</span> with <span class="math inline">\(u_1, u_2 \in U\)</span>. Then <span class="math display">\[\lambda v + (1 - \lambda) w = \lambda a + (1 - \lambda) a + \lambda u_1 + (1 - \lambda) u_2 = a + \bigl(\lambda u_1 + (1 - \lambda) u_2\bigr).\]</span> Since <span class="math inline">\(U\)</span> is a subspace, <span class="math inline">\(\lambda u_1 + (1 - \lambda) u_2 \in U\)</span>. Hence <span class="math inline">\(\lambda v + (1 - \lambda) w \in a + U = A\)</span>.</p>
+<p><em>(<span class="math inline">\(\Leftarrow\)</span>)</em> Suppose <span class="math inline">\(\lambda v + (1 - \lambda) w \in A\)</span> for all <span class="math inline">\(v, w \in A\)</span> and all <span class="math inline">\(\lambda \in \mathbf{F}\)</span>. Since <span class="math inline">\(A\)</span> is nonempty, choose <span class="math inline">\(a \in A\)</span> and define <span class="math display">\[U = \{x - a : x \in A\}.\]</span> Then <span class="math inline">\(A = a + U\)</span>, because <span class="math inline">\(x = a + (x - a)\)</span> for each <span class="math inline">\(x \in A\)</span>, and <span class="math inline">\(a + (x - a) = x \in A\)</span> for each <span class="math inline">\(x - a \in U\)</span>. So it suffices to show that <span class="math inline">\(U\)</span> is a subspace of <span class="math inline">\(V\)</span>.</p>
+<ul>
+<li><p><em>Zero.</em> <span class="math inline">\(0 = a - a \in U\)</span> because <span class="math inline">\(a \in A\)</span>.</p></li>
+<li><p><em>Closed under scalar multiplication.</em> Let <span class="math inline">\(u \in U\)</span> and <span class="math inline">\(\lambda \in \mathbf{F}\)</span>. Write <span class="math inline">\(u = x - a\)</span> with <span class="math inline">\(x \in A\)</span>. Then <span class="math display">\[\lambda u = \lambda x - \lambda a = \bigl(\lambda x + (1 - \lambda) a\bigr) - a.\]</span> By hypothesis, <span class="math inline">\(\lambda x + (1 - \lambda) a \in A\)</span>. Hence <span class="math inline">\(\lambda u \in U\)</span>.</p></li>
+<li><p><em>Closed under addition.</em> Let <span class="math inline">\(u_1, u_2 \in U\)</span>. Write <span class="math inline">\(u_1 = x_1 - a\)</span> and <span class="math inline">\(u_2 = x_2 - a\)</span> with <span class="math inline">\(x_1, x_2 \in A\)</span>. Taking <span class="math inline">\(\lambda = \tfrac12\)</span> in the hypothesis gives <span class="math inline">\(\tfrac12 x_1 + \tfrac12 x_2 \in A\)</span>. Hence <span class="math display">\[\tfrac12 (u_1 + u_2) = \bigl(\tfrac12 x_1 + \tfrac12 x_2\bigr) - a \in U.\]</span> By closure under scalar multiplication, <span class="math inline">\(u_1 + u_2 = 2 \cdot \tfrac12 (u_1 + u_2) \in U\)</span>.</p></li>
+</ul>
+<p>Therefore <span class="math inline">\(U\)</span> is a subspace of <span class="math inline">\(V\)</span>, and <span class="math inline">\(A = a + U\)</span> is a translate of it. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>The step <span class="math inline">\(\lambda = \tfrac12\)</span> uses <span class="math inline">\(2 \neq 0\)</span> in <span class="math inline">\(\mathbf{F}\)</span>, which holds because <span class="math inline">\(\mathbf{F}\)</span> is <span class="math inline">\(\mathbf{R}\)</span> or <span class="math inline">\(\mathbf{C}\)</span>. Over a field where <span class="math inline">\(1 + 1 = 0\)</span> the condition is weaker, and the result can fail.</li>
+<li>By Exercise 6, the subspace <span class="math inline">\(U\)</span> is determined by <span class="math inline">\(A\)</span>: it equals <span class="math inline">\(\{x - y : x, y \in A\}\)</span>, whichever <span class="math inline">\(a \in A\)</span> we chose.</li>
+<li>The condition with all <span class="math inline">\(\lambda \in \mathbf{F}\)</span> describes an <em>affine subset</em>. Requiring only <span class="math inline">\(\lambda \in [0, 1]\)</span> (for <span class="math inline">\(\mathbf{F} = \mathbf{R}\)</span>) describes the weaker notion of a <em>convex</em> set.</li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
