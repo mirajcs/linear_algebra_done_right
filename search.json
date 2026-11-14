@@ -66,6 +66,17 @@
     ]
   },
   {
+    "objectID": "exercises_3e.html#exercise-8",
+    "href": "exercises_3e.html#exercise-8",
+    "title": "Exercises: Products and Quotients of Vector Spaces",
+    "section": "Exercise 8",
+    "text": "Exercise 8\n\n\nSuppose \\(T \\in \\mathcal{L}(V, W)\\) and \\(c \\in W\\). Prove that \\(\\{x \\in V : Tx = c\\}\\) is either the empty set or is a translate of \\(\\operatorname{null} T\\).\nExplain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of \\(\\mathbf{F}^n\\).\n\n\nIdea. Any two solutions of \\(Tx = c\\) differ by an element of \\(\\operatorname{null} T\\), because \\(T(x - x_0) = c - c = 0\\). So once we have one solution \\(x_0\\), every solution is \\(x_0\\) plus something in \\(\\operatorname{null} T\\), and every such vector is a solution. A linear system is just an equation \\(Tx = c\\) for a suitable \\(T\\).\n\n(a)\nLet \\(S = \\{x \\in V : Tx = c\\}\\). If \\(S = \\varnothing\\), there is nothing to prove. Otherwise choose \\(x_0 \\in S\\), so \\(Tx_0 = c\\). We show \\(S = x_0 + \\operatorname{null} T\\).\n(\\(\\subseteq\\)) Let \\(x \\in S\\). Then \\[T(x - x_0) = Tx - Tx_0 = c - c = 0,\\] so \\(x - x_0 \\in \\operatorname{null} T\\). Hence \\(x = x_0 + (x - x_0) \\in x_0 + \\operatorname{null} T\\).\n(\\(\\supseteq\\)) Let \\(u \\in \\operatorname{null} T\\). Then \\[T(x_0 + u) = Tx_0 + Tu = c + 0 = c,\\] so \\(x_0 + u \\in S\\).\nTherefore \\(S = x_0 + \\operatorname{null} T\\), a translate of \\(\\operatorname{null} T\\). \\(\\blacksquare\\)\n\n\n(b)\nDefine \\(T \\colon \\mathbf{F}^n \\to \\mathbf{F}^m\\) by \\[T(x_1, \\ldots, x_n) = \\left( \\sum_{k=1}^{n} A_{1,k} x_k, \\; \\ldots, \\; \\sum_{k=1}^{n} A_{m,k} x_k \\right).\\] Then \\(T \\in \\mathcal{L}(\\mathbf{F}^n, \\mathbf{F}^m)\\) (each coordinate is a linear combination of \\(x_1, \\ldots, x_n\\)). Let \\(c = (c_1, \\ldots, c_m) \\in \\mathbf{F}^m\\). Comparing coordinates, \\(x \\in \\mathbf{F}^n\\) solves the system 3.27 if and only if \\(Tx = c\\). So the solution set is \\[\\{x \\in \\mathbf{F}^n : Tx = c\\}.\\] By (a), this set is either empty or a translate of \\(\\operatorname{null} T\\). Since \\(\\operatorname{null} T\\) is a subspace of \\(\\mathbf{F}^n\\) (3.13), the solution set is either empty or a translate of a subspace of \\(\\mathbf{F}^n\\). \\(\\blacksquare\\)\nRemarks.\n\nWhen \\(c \\neq 0\\), the solution set is disjoint from \\(\\operatorname{null} T\\): if \\(Tx = c\\) and \\(Tx = 0\\) then \\(c = 0\\). So the solution set is a translate of \\(\\operatorname{null} T\\) but is never contained in it unless \\(c = 0\\), in which case it equals \\(\\operatorname{null} T\\).\nThe solution set is a subspace only when \\(c = 0\\), since a subspace must contain \\(0\\) and \\(T0 = 0\\). For \\(c \\neq 0\\) it is an affine “shifted copy” of \\(\\operatorname{null} T\\), which is the familiar statement general solution = particular solution + homogeneous solution.",
+    "crumbs": [
+      "Chapter 3: Linear Maps",
+      "3E Exercises"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Linear Algebra Done Right",

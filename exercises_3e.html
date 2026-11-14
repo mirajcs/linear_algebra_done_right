@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miraj Samarakkody">
-<meta name="dcterms.date" content="2026-11-12">
+<meta name="dcterms.date" content="2026-11-14">
 
 <title>Exercises: Products and Quotients of Vector Spaces – Linear Algebra Done Right</title>
 <style>
@@ -197,6 +197,11 @@ window.Quarto = {
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exercises_3e.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -222,7 +227,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2026</p>
+      <p class="date">November 14, 2026</p>
     </div>
   </div>
   
@@ -341,8 +346,34 @@ T(v + \lambda u)
 <ol type="1">
 <li>Geometrically, <span class="math inline">\(\mathbf{R}^3 / U\)</span> is the set of planes parallel to <span class="math inline">\(U\)</span>, one for each <span class="math inline">\(c \in \mathbf{R}\)</span>. The map <span class="math inline">\(P_c \mapsto c\)</span> is the isomorphism <span class="math inline">\(\mathbf{R}^3/U \to \mathbf{R}\)</span> that <span class="math inline">\(\varphi\)</span> induces (3.106). This matches <span class="math inline">\(\dim \mathbf{R}^3/U = 3 - 2 = 1\)</span>.</li>
 </ol>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<blockquote class="blockquote">
+<ol type="a">
+<li><p>Suppose <span class="math inline">\(T \in \mathcal{L}(V, W)\)</span> and <span class="math inline">\(c \in W\)</span>. Prove that <span class="math inline">\(\{x \in V : Tx = c\}\)</span> is either the empty set or is a translate of <span class="math inline">\(\operatorname{null} T\)</span>.</p></li>
+<li><p>Explain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of <span class="math inline">\(\mathbf{F}^n\)</span>.</p></li>
+</ol>
+</blockquote>
+<p><strong>Idea.</strong> Any two solutions of <span class="math inline">\(Tx = c\)</span> differ by an element of <span class="math inline">\(\operatorname{null} T\)</span>, because <span class="math inline">\(T(x - x_0) = c - c = 0\)</span>. So once we have one solution <span class="math inline">\(x_0\)</span>, every solution is <span class="math inline">\(x_0\)</span> plus something in <span class="math inline">\(\operatorname{null} T\)</span>, and every such vector is a solution. A linear system is just an equation <span class="math inline">\(Tx = c\)</span> for a suitable <span class="math inline">\(T\)</span>.</p>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">(a)</h3>
+<p>Let <span class="math inline">\(S = \{x \in V : Tx = c\}\)</span>. If <span class="math inline">\(S = \varnothing\)</span>, there is nothing to prove. Otherwise choose <span class="math inline">\(x_0 \in S\)</span>, so <span class="math inline">\(Tx_0 = c\)</span>. We show <span class="math inline">\(S = x_0 + \operatorname{null} T\)</span>.</p>
+<p><em>(<span class="math inline">\(\subseteq\)</span>)</em> Let <span class="math inline">\(x \in S\)</span>. Then <span class="math display">\[T(x - x_0) = Tx - Tx_0 = c - c = 0,\]</span> so <span class="math inline">\(x - x_0 \in \operatorname{null} T\)</span>. Hence <span class="math inline">\(x = x_0 + (x - x_0) \in x_0 + \operatorname{null} T\)</span>.</p>
+<p><em>(<span class="math inline">\(\supseteq\)</span>)</em> Let <span class="math inline">\(u \in \operatorname{null} T\)</span>. Then <span class="math display">\[T(x_0 + u) = Tx_0 + Tu = c + 0 = c,\]</span> so <span class="math inline">\(x_0 + u \in S\)</span>.</p>
+<p>Therefore <span class="math inline">\(S = x_0 + \operatorname{null} T\)</span>, a translate of <span class="math inline">\(\operatorname{null} T\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</section>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">(b)</h3>
+<p>Define <span class="math inline">\(T \colon \mathbf{F}^n \to \mathbf{F}^m\)</span> by <span class="math display">\[T(x_1, \ldots, x_n) = \left( \sum_{k=1}^{n} A_{1,k} x_k, \; \ldots, \; \sum_{k=1}^{n} A_{m,k} x_k \right).\]</span> Then <span class="math inline">\(T \in \mathcal{L}(\mathbf{F}^n, \mathbf{F}^m)\)</span> (each coordinate is a linear combination of <span class="math inline">\(x_1, \ldots, x_n\)</span>). Let <span class="math inline">\(c = (c_1, \ldots, c_m) \in \mathbf{F}^m\)</span>. Comparing coordinates, <span class="math inline">\(x \in \mathbf{F}^n\)</span> solves the system 3.27 if and only if <span class="math inline">\(Tx = c\)</span>. So the solution set is <span class="math display">\[\{x \in \mathbf{F}^n : Tx = c\}.\]</span> By (a), this set is either empty or a translate of <span class="math inline">\(\operatorname{null} T\)</span>. Since <span class="math inline">\(\operatorname{null} T\)</span> is a subspace of <span class="math inline">\(\mathbf{F}^n\)</span> (3.13), the solution set is either empty or a translate of a subspace of <span class="math inline">\(\mathbf{F}^n\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+<p><strong>Remarks.</strong></p>
+<ol type="1">
+<li>When <span class="math inline">\(c \neq 0\)</span>, the solution set is disjoint from <span class="math inline">\(\operatorname{null} T\)</span>: if <span class="math inline">\(Tx = c\)</span> and <span class="math inline">\(Tx = 0\)</span> then <span class="math inline">\(c = 0\)</span>. So the solution set is a translate of <span class="math inline">\(\operatorname{null} T\)</span> but is never contained in it unless <span class="math inline">\(c = 0\)</span>, in which case it equals <span class="math inline">\(\operatorname{null} T\)</span>.</li>
+<li>The solution set is a subspace only when <span class="math inline">\(c = 0\)</span>, since a subspace must contain <span class="math inline">\(0\)</span> and <span class="math inline">\(T0 = 0\)</span>. For <span class="math inline">\(c \neq 0\)</span> it is an affine “shifted copy” of <span class="math inline">\(\operatorname{null} T\)</span>, which is the familiar statement <em>general solution = particular solution + homogeneous solution</em>.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
